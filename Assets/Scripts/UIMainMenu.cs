@@ -8,11 +8,8 @@ namespace Game.Arcade1942
 {
     public class UIMainMenu : MonoBehaviour
     {
-        [SerializeField] private Button m_BtnPlay;
-        [SerializeField] private Button m_BtnHighScore;
-        [SerializeField] private Button m_BtnExit;
-        [SerializeField] private string m_GameSceneName;
-        [SerializeField] private GameObject m_HighScoreTable;
+        [SerializeField] private string m_GameSceneName = default;
+        [SerializeField] private GameObject m_HighScoreTable = default;
 
         public void OnPlay()
         {

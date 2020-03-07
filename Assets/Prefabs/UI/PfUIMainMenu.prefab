@@ -810,9 +810,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd6eb4af670b304439976813dc143f11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_BtnPlay: {fileID: 3419337460511128734}
-  m_BtnHighScore: {fileID: 3419337460221451398}
-  m_BtnExit: {fileID: 3419337460012007761}
   m_GameSceneName: GameScene
   m_HighScoreTable: {fileID: 0}
 --- !u!1 &3419337461225122925

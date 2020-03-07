@@ -2,7 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 
-namespace Game.Manager
+namespace Game.Arcade1942
 {
     /// <summary>
     /// ScrollMode defines the direction of parallaxScroll

@@ -6,9 +6,9 @@ using UnityEngine;
 namespace Game.Arcade1942
 {
     /// <summary>
-    /// Creates the highscore list when highscore button is clicked in gameend screen.
+    /// Creates the highscore list when highscore button is clicked.
     /// </summary>
-    public class HighScoreTable : MonoBehaviour
+    public class UIHighScoreTable : MonoBehaviour
     {
         [SerializeField] private HighScores m_Highscores = default;
         [SerializeField] private GameObject m_HighscoreTemplate = default;

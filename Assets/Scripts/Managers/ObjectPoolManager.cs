@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Game.Manager
+namespace Game.Arcade1942
 {
     [System.Serializable]
     public class ObjectToPool
