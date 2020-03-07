@@ -69,7 +69,7 @@ namespace Game.Arcade1942
         /// Also, resets the transform after putting it back in pool
         /// </summary>
         /// <param name="obj"></param>
-        public void AddBackToPool(GameObject obj)
+        public void ReturnToPool(GameObject obj)
         {
             if (obj == null)
                 return;
