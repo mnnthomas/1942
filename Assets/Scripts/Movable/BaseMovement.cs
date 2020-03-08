@@ -5,7 +5,7 @@ using UnityEngine;
 namespace Game.Arcade1942
 {
     [RequireComponent(typeof(Rigidbody2D))]
-    public abstract class MovableBase : MonoBehaviour
+    public abstract class BaseMovement : MonoBehaviour
     {
         [SerializeField] protected float m_Speed = default;
         public bool pIsMoving { get; private set; }
@@ -37,6 +37,7 @@ namespace Game.Arcade1942
 
         protected void OnTriggerEnter2D(Collider2D other)
         {
+            Debug.Log(" >> " + other.gameObject.name);
             ObjectPoolManager.pInstance.ReturnToPool(gameObject);
         }
     }

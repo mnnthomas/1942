@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Game.Arcade1942
 {
-    public class MovableStraight : MovableBase
+    public class StraightMovement : BaseMovement
     {
         private void OnEnable()
         {

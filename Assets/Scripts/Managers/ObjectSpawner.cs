@@ -7,7 +7,8 @@ namespace Game.Arcade1942
 {
     /// <summary>
     /// _Name - Name of the object to spawn (referes to name in ObjectPool)
-    /// _Delay - Time between spawns
+    /// _InitDelay - Time before first spawn
+    /// _SpawnInterval - Time between spawns
     /// _SpawnAsSquad - Allows continuous spawn to make AI look like a squad
     /// _SquadCount - Squad count for continuous spawn
     /// _SquadSpawnDelay - Delay between continuous spawn
@@ -16,7 +17,9 @@ namespace Game.Arcade1942
     public class ObjectSpawnData
     {
         public string _Name;
-        public float _Delay;
+        public float _InitDelay;
+        public float _SpawnInterval;
+        public BoxCollider2D _SpawnArea;
         [Header(" -- Squad Spawn -- ")]
         public bool _SpawnAsSquad;
         public int _SquadCount;
@@ -34,7 +37,7 @@ namespace Game.Arcade1942
 
         private void Start()
         {
-            Invoke("StartSpawnning", 5f);
+            StartSpawnning();
         }
 
         public void StartSpawnning()
@@ -55,8 +58,17 @@ namespace Game.Arcade1942
         {
             while(mAllowSpawn)
             {
+                Vector3 spawnPoint = transform.position;
+                if(data._SpawnArea != null)
+                {
+                    spawnPoint = new Vector3(Random.Range(data._SpawnArea.bounds.min.x, data._SpawnArea.bounds.max.x), transform.position.y, transform.position.z);
+                }
+
+
+                yield return new WaitForSeconds(data._InitDelay);
+
                 if (!data._SpawnAsSquad)
-                    ObjectPoolManager.pInstance.SpawnObject(data._Name, transform.position);
+                    ObjectPoolManager.pInstance.SpawnObject(data._Name, spawnPoint);
                 else
                 {
                     for(int i = 0; i < data._SquadCount; i++)
@@ -65,7 +77,7 @@ namespace Game.Arcade1942
                         yield return new WaitForSeconds(data._SquadSpawnDelay);
                     }
                 }
-                yield return new WaitForSeconds(data._Delay);
+                yield return new WaitForSeconds(data._SpawnInterval);
             }
         }
 
