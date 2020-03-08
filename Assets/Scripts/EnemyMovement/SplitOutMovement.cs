@@ -8,6 +8,7 @@ namespace Game.Arcade1942
     {
         [Header(" -- Variables for SplitOut movement ")]
         [SerializeField] private float m_SplitTimer = default;
+        [SerializeField] private float m_SplitSpeed = default;
 
         private float startTime;
         private int turnValue;
@@ -29,7 +30,7 @@ namespace Game.Arcade1942
             }
             else
             {
-                movmentVector = new Vector2(turnValue == 0 ? -1 : 1, -m_Speed) * Time.deltaTime;
+                movmentVector = new Vector2(turnValue == 0 ? -m_SplitSpeed : m_SplitSpeed, -m_Speed) * Time.deltaTime;
                 transform.Translate(movmentVector, Space.Self);
             }
 

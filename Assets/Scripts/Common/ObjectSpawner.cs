@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-
 namespace Game.Arcade1942
 {
     /// <summary>
@@ -18,7 +17,7 @@ namespace Game.Arcade1942
     {
         public string _Name;
         public float _InitDelay;
-        public float _SpawnInterval;
+        public Utilities.MinMax _SpawnInterval;
         public BoxCollider2D _SpawnArea;
         [Header(" -- Squad Spawn -- ")]
         public bool _SpawnAsSquad;
@@ -77,7 +76,7 @@ namespace Game.Arcade1942
                         yield return new WaitForSeconds(data._SquadSpawnDelay);
                     }
                 }
-                yield return new WaitForSeconds(data._SpawnInterval);
+                yield return new WaitForSeconds(Random.Range(data._SpawnInterval.Min, data._SpawnInterval.Max));
             }
         }
 

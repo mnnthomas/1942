@@ -37,7 +37,6 @@ namespace Game.Arcade1942
 
         protected void OnTriggerEnter2D(Collider2D other)
         {
-            Debug.Log(" >> " + other.gameObject.name);
             ObjectPoolManager.pInstance.ReturnToPool(gameObject);
         }
     }

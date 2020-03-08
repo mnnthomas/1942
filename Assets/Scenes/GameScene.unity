@@ -153,21 +153,27 @@ MonoBehaviour:
   m_ObjectSpawns:
   - _Name: Enemy1
     _InitDelay: 5
-    _SpawnInterval: 3
+    _SpawnInterval:
+      Min: 5
+      Max: 10
     _SpawnArea: {fileID: 1743109291}
     _SpawnAsSquad: 0
     _SquadCount: 0
     _SquadSpawnDelay: 0
   - _Name: Enemy2
     _InitDelay: 15
-    _SpawnInterval: 10
+    _SpawnInterval:
+      Min: 15
+      Max: 20
     _SpawnArea: {fileID: 1286109853}
     _SpawnAsSquad: 1
     _SquadCount: 3
     _SquadSpawnDelay: 0.5
   - _Name: Enemy3
     _InitDelay: 25
-    _SpawnInterval: 15
+    _SpawnInterval:
+      Min: 20
+      Max: 25
     _SpawnArea: {fileID: 1286109853}
     _SpawnAsSquad: 1
     _SquadCount: 8
@@ -829,6 +835,11 @@ MonoBehaviour:
   - _Name: Explosion
     _Count: 3
     _Object: {fileID: 8262872918911538882, guid: 86e5fc06ad1b59848ac68e656e6bf984,
+      type: 3}
+    _CanSpawnAboveCount: 1
+  - _Name: PrimaryBullet
+    _Count: 25
+    _Object: {fileID: 5735198374546669815, guid: ed28e3db62085e642993e0533cb58e55,
       type: 3}
     _CanSpawnAboveCount: 1
 --- !u!4 &1974879303
