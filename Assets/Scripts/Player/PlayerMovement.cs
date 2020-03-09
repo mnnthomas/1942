@@ -6,18 +6,15 @@ using UnityEngine;
 namespace Game.Arcade1942
 {
     /// <summary>
-    /// Handles movement in X,Y axis
+    /// Inherits from BaseMovement and Handles movement in X,Y axis
     /// The sound for player flight's Idle and movement is also handled here
     /// </summary>
     [RequireComponent(typeof(AudioSource))]
-    public class PlayerMovementController : MonoBehaviour
+    public class PlayerMovement : BaseMovement
     {
         [Header(" -- Keyboard axis keys -- ")]
         [SerializeField] private string m_HorizontalKey = default;
         [SerializeField] private string m_ForwardKey = default;
-        [Header(" -- Player movement speeds -- ")]
-        [SerializeField] private float m_HorizontalSpeed = default;
-        [SerializeField] private float m_ForwardSpeed = default;
         [Header("-- Player movement audio --")]
         [SerializeField] private Utilities.MinMax m_MovingPitchRange = default;
         [SerializeField] private Utilities.MinMax m_IdlingPitchRange = default;
@@ -30,8 +27,9 @@ namespace Game.Arcade1942
         private Bounds mCameraBounds;
         private Coroutine mUpdateSound;
 
-        private void Start()
+        protected override void Start()
         {
+            base.Start();
             mAudioSource = GetComponent<AudioSource>();
 
             float minX = Camera.main.transform.position.x - Camera.main.orthographicSize;
@@ -41,26 +39,24 @@ namespace Game.Arcade1942
             mCameraBounds.SetMinMax(new Vector3(minX, minY, 0), new Vector3(maxX, maxY, 0));
         }
 
-        private void Update()
+        private void OnEnable()
         {
-            UpdateMovement();
+            StartMovement();
         }
 
         /// <summary>
         /// get the keyboard inputs and calculates movementVector every frame.
         /// </summary>
-        private void UpdateMovement()
+        protected override void Move()
         {
-            movementVector = new Vector2(Input.GetAxis(m_HorizontalKey) * m_HorizontalSpeed, Input.GetAxis(m_ForwardKey) * m_ForwardSpeed) * Time.deltaTime;
+            movementVector = new Vector2(Input.GetAxis(m_HorizontalKey) * m_Speed.x, Input.GetAxis(m_ForwardKey) * m_Speed.y) * Time.deltaTime;
             transform.Translate(movementVector, Space.Self);
 
             if (!mCameraBounds.Contains(transform.position))
                 transform.position = new Vector3(mCameraBounds.ClosestPoint(transform.position).x, mCameraBounds.ClosestPoint(transform.position).y, transform.position.z);
             
-
             UpdateEngineSound(movementVector);
         }
-
 
         /// <summary>
         /// Handles flight sound based on the movement vector. 
@@ -106,7 +102,7 @@ namespace Game.Arcade1942
             }
             mAudioSource.volume = volume;
             mAudioSource.pitch = pitch;
-        }
+        }       
     }
 }
 

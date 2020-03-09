@@ -41,7 +41,6 @@ namespace Game.Arcade1942
 
         protected virtual void OnCollided(GameObject obj)
         {
-            Debug.Log(" >> " + obj.name);
             if (obj.GetComponent<IHealth>() != null)
                 obj.GetComponent<IHealth>().TakeDamage(m_BulletData.Damage);
 

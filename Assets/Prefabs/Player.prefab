@@ -53,7 +53,7 @@ AudioSource:
   Priority: 128
   DopplerLevel: 1
   MinDistance: 1
-  MaxDistance: 500
+  MaxDistance: 10
   Pan2D: 0
   rolloffMode: 0
   BypassEffects: 0
@@ -142,7 +142,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_SpawnPoint: {fileID: 3116583233427233247}
   m_SpawnClip: {fileID: 8300000, guid: 6957c8309c8e47c4482d60c0f534dfbb, type: 3}
-  m_SpawnEffect: {fileID: 0}
   m_BulletName: PrimaryBullet
 --- !u!1 &3897388200520702935
 GameObject:
@@ -197,7 +196,7 @@ AudioSource:
   Priority: 128
   DopplerLevel: 1
   MinDistance: 1
-  MaxDistance: 500
+  MaxDistance: 10
   Pan2D: 0
   rolloffMode: 0
   BypassEffects: 0
@@ -286,7 +285,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_SpawnPoint: {fileID: 7107769339159049124}
   m_SpawnClip: {fileID: 8300000, guid: 6957c8309c8e47c4482d60c0f534dfbb, type: 3}
-  m_SpawnEffect: {fileID: 0}
   m_BulletName: PrimaryBullet
 --- !u!1 &5652759724165757764
 GameObject:
@@ -439,7 +437,7 @@ AudioSource:
   Priority: 128
   DopplerLevel: 1
   MinDistance: 1
-  MaxDistance: 500
+  MaxDistance: 10
   Pan2D: 0
   rolloffMode: 0
   BypassEffects: 0
@@ -611,10 +609,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fc068d3a78f2b98428e0c45690393fb1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_Speed: {x: 7, y: 7}
   m_HorizontalKey: Horizontal
   m_ForwardKey: Vertical
-  m_HorizontalSpeed: 5
-  m_ForwardSpeed: 5
   m_MovingPitchRange:
     Min: 0.8
     Max: 1

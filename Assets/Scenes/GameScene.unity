@@ -167,7 +167,7 @@ MonoBehaviour:
       Max: 20
     _SpawnArea: {fileID: 1286109853}
     _SpawnAsSquad: 1
-    _SquadCount: 3
+    _SquadCount: 4
     _SquadSpawnDelay: 0.5
   - _Name: Enemy3
     _InitDelay: 25

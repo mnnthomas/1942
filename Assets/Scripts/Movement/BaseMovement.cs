@@ -34,10 +34,5 @@ namespace Game.Arcade1942
             if (pIsMoving)
                 Move();
         }
-
-        protected void OnTriggerEnter2D(Collider2D other)
-        {
-            ObjectPoolManager.pInstance.ReturnToPool(gameObject);
-        }
     }
 }

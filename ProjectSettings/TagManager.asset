@@ -16,8 +16,8 @@ TagManager:
   - Spawn
   - Enemy
   - Player
-  - 
-  - 
+  - PlayerBullet
+  - EnemyBullet
   - 
   - 
   - 
