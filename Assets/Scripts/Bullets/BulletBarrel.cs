@@ -13,7 +13,6 @@ namespace Game.Arcade1942
     {
         [SerializeField] private Transform m_SpawnPoint = default;
         [SerializeField] private AudioClip m_SpawnClip = default;
-        [SerializeField] private GameObject m_SpawnEffect = default;
         [SerializeField] private string m_BulletName = default;
         private AudioSource mAudioSource;
 
@@ -29,7 +28,7 @@ namespace Game.Arcade1942
 
             if(bullet)
             {
-                bullet.GetComponent<BulletBase>().InitializeBullet(m_SpawnPoint.up, target);
+                bullet.GetComponent<BaseBullet>().Initialize(m_SpawnPoint.up, target);
 
                 if (mAudioSource && m_SpawnClip)
                     mAudioSource.PlayOneShot(m_SpawnClip, 1f);

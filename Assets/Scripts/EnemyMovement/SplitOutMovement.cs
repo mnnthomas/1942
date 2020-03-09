@@ -25,12 +25,12 @@ namespace Game.Arcade1942
         {
             if(Time.time - startTime < m_SplitTimer)
             {
-                movmentVector = new Vector2(0, -m_Speed * Time.deltaTime);
+                movmentVector = new Vector2(m_Speed.x, m_Speed.y) * Time.deltaTime;
                 transform.Translate(movmentVector, Space.Self);
             }
             else
             {
-                movmentVector = new Vector2(turnValue == 0 ? -m_SplitSpeed : m_SplitSpeed, -m_Speed) * Time.deltaTime;
+                movmentVector = new Vector2(turnValue == 0 ? -m_SplitSpeed : m_SplitSpeed, m_Speed.y) * Time.deltaTime;
                 transform.Translate(movmentVector, Space.Self);
             }
 

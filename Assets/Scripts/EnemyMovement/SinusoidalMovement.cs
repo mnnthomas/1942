@@ -19,7 +19,7 @@ namespace Game.Arcade1942
 
         protected override void Move()
         {
-            valueY = transform.position.y - m_Speed;
+            valueY = transform.position.y + m_Speed.y;
             valueX = m_Amplitude * Mathf.Sin(m_Period * valueY);
             transform.position = new Vector3(valueX, valueY, transform.position.z);
         }

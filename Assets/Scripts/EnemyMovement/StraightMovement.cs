@@ -6,6 +6,8 @@ namespace Game.Arcade1942
 {
     public class StraightMovement : BaseMovement
     {
+        Vector2 movementVector;
+
         private void OnEnable()
         {
             StartMovement();
@@ -13,7 +15,8 @@ namespace Game.Arcade1942
 
         protected override void Move()
         {
-            transform.Translate(new Vector2(0, -m_Speed * Time.deltaTime), Space.Self);
+            movementVector = new Vector2(m_Speed.x, m_Speed.y) * Time.deltaTime;
+            transform.Translate(movementVector, Space.Self);
         }
     }
 }

@@ -9,7 +9,7 @@ namespace Game.Arcade1942
     /// This class handles Instantiating, Collision and destroying of all types of bullet
     /// </summary>
     [RequireComponent(typeof(Rigidbody2D))]
-    public abstract class BulletBase : MonoBehaviour
+    public abstract class BaseBullet : MonoBehaviour
     {
         [SerializeField] protected BulletData m_BulletData = default;
 
@@ -26,7 +26,7 @@ namespace Game.Arcade1942
             mStartTime = Time.time;
         }
 
-        public abstract void InitializeBullet(Vector3 barrelForward, Transform target = null);
+        public abstract void Initialize(Vector3 barrelForward, Transform target = null);
 
         private void OnTriggerEnter2D(Collider2D other)
         {

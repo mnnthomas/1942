@@ -635,8 +635,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4894f7990cc19454aac6a1ea0733071b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_PrimaryWeaponKey: PrimaryFire
   m_FireRate: 0.25
-  m_PrimaryBarrels:
+  m_Barrels:
   - {fileID: 5652759722682678522}
   - {fileID: 5652759722682678520}
+  m_PrimaryWeaponKey: PrimaryFire

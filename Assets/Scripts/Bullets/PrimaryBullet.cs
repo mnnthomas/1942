@@ -5,11 +5,11 @@ using UnityEngine;
 namespace Game.Arcade1942
 {
     /// <summary>
-    /// Inherits from BulletBase, Handle specific cases for primary bullet functionality
+    /// Inherits from BaseBullet, Handle specific initalization for player's primary bullet functionality
     /// </summary>
-    public class PrimaryBullet : BulletBase
+    public class PrimaryBullet : BaseBullet
     {
-        public override void InitializeBullet(Vector3 barrelForward, Transform target = null)
+        public override void Initialize(Vector3 barrelForward, Transform target = null)
         {
             mCurDirection = barrelForward;
             mInitialized = true;
