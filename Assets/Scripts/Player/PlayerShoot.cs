@@ -5,7 +5,7 @@ using UnityEngine;
 namespace Game.Arcade1942
 {
     /// <summary>
-    /// The Player Shooting controller enables the barrels to shoot based on User Inputs.
+    /// The PlayerShoot enables the barrels to shoot based on User Inputs.
     /// </summary>
     public class PlayerShoot : BaseShoot
     {
