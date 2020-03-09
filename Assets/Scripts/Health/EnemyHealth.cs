@@ -11,7 +11,6 @@ namespace Game.Arcade1942
         [SerializeField] private float m_AutoDestroyDuration = default;
         [SerializeField] private Slider m_HealthSlider = default;
 
-
         public float pCurHealth { private set; get; }
 
         private float mStartTime;

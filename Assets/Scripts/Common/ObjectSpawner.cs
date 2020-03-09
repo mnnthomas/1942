@@ -59,7 +59,7 @@ namespace Game.Arcade1942
             {
                 Vector3 spawnPoint = transform.position;
                 if(data._SpawnArea != null)
-                    spawnPoint = new Vector3(Random.Range(data._SpawnArea.bounds.min.x, data._SpawnArea.bounds.max.x), transform.position.y, transform.position.z);
+                    spawnPoint = new Vector3(Random.Range(data._SpawnArea.bounds.min.x, data._SpawnArea.bounds.max.x), data._SpawnArea.transform.position.y, transform.position.z);
 
                 yield return new WaitForSeconds(data._InitDelay);
 
