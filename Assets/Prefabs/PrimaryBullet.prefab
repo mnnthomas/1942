@@ -13,8 +13,8 @@ GameObject:
   - component: {fileID: -2968868990929100998}
   - component: {fileID: -2178508839488386246}
   - component: {fileID: 461855231063476000}
-  m_Layer: 11
-  m_Name: PlayerBullet
+  m_Layer: 10
+  m_Name: PrimaryBullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -144,4 +144,3 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_BulletData: {fileID: 11400000, guid: c4ea9738f7da5b84cb67c9ac30076c04, type: 2}
-  m_ExplosionParticle: {fileID: 0}

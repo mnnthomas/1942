@@ -7,7 +7,7 @@ namespace Game.Arcade1942
     /// <summary>
     /// Inherits from BulletBase, Handle specific cases for primary bullet functionality
     /// </summary>
-    public class PlayerBullet : BulletBase
+    public class PrimaryBullet : BulletBase
     {
         public override void InitializeBullet(Vector3 barrelForward, Transform target = null)
         {

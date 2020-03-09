@@ -15,18 +15,26 @@ namespace Game.Arcade1942
         [Header("-- Barrel references --")]
         [SerializeField] private List<BulletBarrel> m_PrimaryBarrels = new List<BulletBarrel>();
 
+        private bool firingDelay = false;
+
         private void Update()
         {
-            if (Input.GetButtonUp(m_PrimaryWeaponKey))
+            if (Input.GetButton(m_PrimaryWeaponKey) && !firingDelay)
             {
-                FireBullets();
+                //FireBullets();
+                StartCoroutine(FireBullets());
             }
         }
 
-        private void FireBullets()
+        IEnumerator FireBullets()
         {
+            firingDelay = true;
+
             for (int i = 0; i < m_PrimaryBarrels.Count; i++)
                 m_PrimaryBarrels[i].Shoot();
+
+            yield return new WaitForSeconds(m_FireRate);
+            firingDelay = false;
         }
     }
 }

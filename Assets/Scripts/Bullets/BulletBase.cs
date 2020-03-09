@@ -12,18 +12,18 @@ namespace Game.Arcade1942
     public abstract class BulletBase : MonoBehaviour
     {
         [SerializeField] protected BulletData m_BulletData = default;
-        [SerializeField] protected GameObject m_ExplosionParticle = default;
 
         protected Transform mCurTarget;
         protected Vector3 mCurDirection;
         protected bool mInitialized;
 
         protected Rigidbody2D mRigidbody;
+        private float mStartTime;
 
         private void OnEnable()
         {
             mRigidbody = GetComponent<Rigidbody2D>();
-            Invoke("DestroyBullet", m_BulletData.DurationAlive);
+            mStartTime = Time.time;
         }
 
         public abstract void InitializeBullet(Vector3 barrelForward, Transform target = null);
@@ -33,11 +33,15 @@ namespace Game.Arcade1942
             OnCollided(other.gameObject);
         }
 
+        protected virtual void Update()
+        {
+            if (Time.time - mStartTime >= m_BulletData.DurationAlive && isActiveAndEnabled)
+                DestroyBullet();
+        }
+
         protected virtual void OnCollided(GameObject obj)
         {
-            if (m_ExplosionParticle)
-                Instantiate(m_ExplosionParticle, transform.position, Quaternion.identity);
-
+            Debug.Log(" >> " + obj.name);
             if (obj.GetComponent<IHealth>() != null)
                 obj.GetComponent<IHealth>().TakeDamage(m_BulletData.Damage);
 
@@ -46,6 +50,9 @@ namespace Game.Arcade1942
 
         protected virtual void DestroyBullet()
         {
+            mInitialized = false;
+            mCurDirection = default;
+            mCurTarget = default;
             ObjectPoolManager.pInstance.ReturnToPool(gameObject);
         }
 
