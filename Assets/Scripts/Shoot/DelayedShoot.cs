@@ -10,20 +10,18 @@ namespace Game.Arcade1942
 
         private float mStartTime = default;
 
-        private void OnEnable()
+        protected override void OnEnable()
         {
             mStartTime = Time.time;
         }
 
-        public override void TriggerShoot()
+        //Shoot after an initial delay
+        public override bool ShootCondition()
         {
-            if(isActiveAndEnabled && Time.time - mStartTime >= m_Delay)
-            {
-                for (int i = 0; i < m_Barrels.Count; i++)
-                    m_Barrels[i].Shoot();
+            if(Time.time - mStartTime >= m_Delay)
+                return true;
 
-                mlastBulletTime = Time.time;
-            }
+            return false;
         }
     }
 }

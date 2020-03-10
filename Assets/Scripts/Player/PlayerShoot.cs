@@ -11,15 +11,13 @@ namespace Game.Arcade1942
     {
         [SerializeField] private string m_PrimaryWeaponKey = default;
      
-        public override void TriggerShoot()
+        //Shoot when primary weapon key is pressed
+        public override bool ShootCondition()
         {
-            if(Input.GetButton(m_PrimaryWeaponKey))
-            {
-                for (int i = 0; i < m_Barrels.Count; i++)
-                    m_Barrels[i].Shoot();
+            if (Input.GetButton(m_PrimaryWeaponKey))
+                return true;
 
-                mlastBulletTime = Time.time;
-            }
+            return false;
         }
     }
 }
