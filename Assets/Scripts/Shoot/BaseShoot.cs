@@ -10,9 +10,14 @@ namespace Game.Arcade1942
         [SerializeField] protected float m_FireRate = default;
         [SerializeField] protected List<BulletBarrel> m_Barrels = new List<BulletBarrel>();
 
-        protected float mlastBulletTime = default;
+        protected float mlastBulletTime = default; // Need to update mLastBulletTime in each TriggerShoot implementation. //Need to implement this properly
 
         public abstract void TriggerShoot();
+
+        private void OnEnable()
+        {
+            mlastBulletTime = 0;
+        }
 
         protected virtual void Update()
         {
@@ -22,11 +27,9 @@ namespace Game.Arcade1942
 
         protected virtual bool CanFireBullet()
         {
-            if (Time.time - mlastBulletTime >= m_FireRate)
-            {
-                mlastBulletTime = Time.time;
+            if (mlastBulletTime == 0 || Time.time - mlastBulletTime >= m_FireRate)
                 return true;
-            }
+
             return false;
         }
     }

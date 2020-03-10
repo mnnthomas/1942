@@ -10,9 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 64c563ae596ff5e4c9976b514b6c36e7, type: 3}
-  m_Name: PrimaryBullet_BulletDat
+  m_Name: PrimaryBulletData
   m_EditorClassIdentifier: 
   m_Damage: 10
   m_Speed: 10
-  m_TurnSpeed: 0
   m_DurationAlive: 5

@@ -9,7 +9,7 @@ namespace Game.Arcade1942
     /// </summary>
     public class PrimaryBullet : BaseBullet
     {
-        public override void Initialize(Vector3 barrelForward, Transform target = null)
+        public override void Initialize(Vector2 barrelForward, Transform target = null)
         {
             mCurDirection = barrelForward;
             mInitialized = true;

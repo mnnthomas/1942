@@ -914,6 +914,11 @@ MonoBehaviour:
     _Object: {fileID: 5735198374546669815, guid: ed28e3db62085e642993e0533cb58e55,
       type: 3}
     _CanSpawnAboveCount: 1
+  - _Name: EnemyBullet
+    _Count: 10
+    _Object: {fileID: 4259472617882098165, guid: d948aa7e4dba79a4d9fb3dfd7980c4cf,
+      type: 3}
+    _CanSpawnAboveCount: 1
 --- !u!4 &1974879303
 Transform:
   m_ObjectHideFlags: 0
@@ -935,6 +940,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1818951228}
     m_Modifications:
+    - target: {fileID: 4185288640948475856, guid: a0acd2e1c72d9fc42b771ef43a0770a3,
+        type: 3}
+      propertyPath: m_FireRate
+      value: 0.25
+      objectReference: {fileID: 0}
     - target: {fileID: 5652759724165757764, guid: a0acd2e1c72d9fc42b771ef43a0770a3,
         type: 3}
       propertyPath: m_Name

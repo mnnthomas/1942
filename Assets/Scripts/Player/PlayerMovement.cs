@@ -27,6 +27,15 @@ namespace Game.Arcade1942
         private Bounds mCameraBounds;
         private Coroutine mUpdateSound;
 
+        //Need to refactor - Using temporarily to get player's transform
+        public static PlayerMovement pPlayer { get; private set; }
+
+        private void Awake()
+        {
+            if (pPlayer == null)
+                pPlayer = this;
+        }
+
         protected override void Start()
         {
             base.Start();

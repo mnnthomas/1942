@@ -26,7 +26,7 @@ namespace Game.Arcade1942
             mStartTime = Time.time;
         }
 
-        public abstract void Initialize(Vector3 barrelForward, Transform target = null);
+        public abstract void Initialize(Vector2 barrelForward, Transform target = null);
 
         private void OnTriggerEnter2D(Collider2D other)
         {
