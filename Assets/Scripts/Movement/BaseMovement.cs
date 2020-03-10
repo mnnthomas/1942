@@ -4,6 +4,10 @@ using UnityEngine;
 
 namespace Game.Arcade1942
 {
+    /// <summary>
+    /// An abstract base movement class
+    /// Handles StartMovment and EndMovement scenarios, Runs the abstract move method in Update after movement is init
+    /// </summary>
     [RequireComponent(typeof(Rigidbody2D))]
     public abstract class BaseMovement : MonoBehaviour
     {

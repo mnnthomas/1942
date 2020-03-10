@@ -101,6 +101,7 @@ GameObject:
   - component: {fileID: 3483683612307741049}
   - component: {fileID: 419578133113927910}
   - component: {fileID: 4599380939746833930}
+  - component: {fileID: 5217038072088518590}
   m_Layer: 5
   m_Name: HealthCanvas
   m_TagString: Untagged
@@ -188,6 +189,19 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &5217038072088518590
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1090664826408060629}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e5aa9777d43ea334d8d285d7b3ff476d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_HealthSlider: {fileID: 7643930614901222806}
 --- !u!1 &1999015673626670311
 GameObject:
   m_ObjectHideFlags: 0
@@ -422,6 +436,7 @@ GameObject:
   - component: {fileID: 5415237072252615418}
   - component: {fileID: 5464786270025100938}
   - component: {fileID: 8095390184693966540}
+  - component: {fileID: -3231646309711872081}
   m_Layer: 9
   m_Name: Enemy_Type3
   m_TagString: Untagged
@@ -621,8 +636,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Health: 30
-  m_AutoDestroyDuration: 10
-  m_HealthSlider: {fileID: 7643930614901222806}
+  m_UIHealth: {fileID: 5217038072088518590}
+  m_ExplosionEffectName: Explosion
+--- !u!114 &-3231646309711872081
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7073400064741225661}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d2575e38f174b4a4f9ddd8d28ac201d2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_CanReturnToPool: 1
+  m_SelfDestructDuration: 10
 --- !u!1 &7842905997894933828
 GameObject:
   m_ObjectHideFlags: 0
