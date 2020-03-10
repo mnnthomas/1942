@@ -19,6 +19,7 @@ namespace Game.Arcade1942
 
         protected Rigidbody2D mRigidbody;
         private float mStartTime;
+        private bool mIsVisible;
 
         private void OnEnable()
         {
@@ -33,6 +34,16 @@ namespace Game.Arcade1942
             OnCollided(other.gameObject);
         }
 
+        protected virtual void OnBecameInvisible()
+        {
+            mIsVisible = false;
+        }
+
+        protected virtual void OnBecameVisible()
+        {
+            mIsVisible = true;
+        }
+
         protected virtual void Update()
         {
             if (Time.time - mStartTime >= m_BulletData.DurationAlive && isActiveAndEnabled)
@@ -41,7 +52,7 @@ namespace Game.Arcade1942
 
         protected virtual void OnCollided(GameObject obj)
         {
-            if (obj.GetComponent<IHealth>() != null)
+            if (obj.GetComponent<IHealth>() != null && mIsVisible)
                 obj.GetComponent<IHealth>().TakeDamage(m_BulletData.Damage);
 
             DestroyBullet();
