@@ -648,6 +648,7 @@ MonoBehaviour:
   m_Barrels:
   - {fileID: 8927735642583283582}
   m_ProximityDistance: 10
+  m_Target: {fileID: 11400000, guid: 9d9fc1a9e9d830a4780cc5fb56c71c04, type: 2}
 --- !u!1 &7516559163683773765
 GameObject:
   m_ObjectHideFlags: 0

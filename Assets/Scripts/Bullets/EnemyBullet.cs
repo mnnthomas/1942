@@ -10,10 +10,11 @@ namespace Game.Arcade1942
     public class EnemyBullet : BaseBullet
     {
         [SerializeField] private Utilities.MinMax m_BulletAimOffset = default;
+        [SerializeField] private TargetTransform m_TragetTranform = default;
 
         public override void Initialize(Vector2 barrelForward, Transform target = null)
         {
-            Vector2 playerTransform = PlayerMovement.pPlayer.transform.position;
+            Vector2 playerTransform = m_TragetTranform.pValue.position;
             playerTransform += new Vector2(Random.Range(m_BulletAimOffset.Min, m_BulletAimOffset.Max), Random.Range(m_BulletAimOffset.Min, m_BulletAimOffset.Max));
 
 
