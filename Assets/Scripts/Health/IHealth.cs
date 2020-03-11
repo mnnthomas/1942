@@ -6,6 +6,7 @@
     /// </summary>
     public interface IHealth
     {
+
         void TakeDamage(float value);
         void OnHealthDepleted();
     }

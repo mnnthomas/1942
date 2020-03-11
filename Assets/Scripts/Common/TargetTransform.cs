@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Game.Arcade1942
 {
-    [CreateAssetMenu(menuName = "Arcade1942/ProximityTarget")]
+    [CreateAssetMenu(menuName = "Arcade1942/TargetTransform")]
     public class TargetTransform : ScriptableObject
     {
         public Transform pValue { get; set; }

@@ -1,18 +1,17 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
 namespace Game.Arcade1942
 {
-    /// <summary>
-    /// EnemyHealth extends from IHealth and handles health calculation on TakeDamage
-    /// </summary>
-    public class EnemyHealth : MonoBehaviour, IHealth
+    public class PlayerHealth : MonoBehaviour, IHealth
     {
         [SerializeField] private float m_Health = default;
         [SerializeField] private UIHealth m_UIHealth = default;
         [SerializeField] private TargetTransform m_MessageReciever = default;
+        [Range(0, 100)]
+        [SerializeField] private float m_LowHealthPercent = default;
+
         [Header(" -- Explosion effects -- ")]
         [SerializeField] private string m_ExplosionEffectName = default;
 
@@ -29,19 +28,21 @@ namespace Game.Arcade1942
             pCurHealth = default;
         }
 
-        //Spawns an explosion effect in place and puts the enemy back in object pool
         public void OnHealthDepleted()
         {
             ObjectPoolManager.pInstance.SpawnObject(m_ExplosionEffectName, transform.position);
-            ObjectPoolManager.pInstance.ReturnToPool(gameObject);
-
-            m_MessageReciever.pValue.SendMessage("OnEnemyDestroyed", gameObject);
+            m_MessageReciever.pValue.SendMessage("OnPlayerDestroyed");
         }
 
         public void TakeDamage(float value)
         {
             pCurHealth -= value;
             m_UIHealth.UpdateHealth(pCurHealth);
+
+            if (pCurHealth / m_Health * 100 <= m_LowHealthPercent)
+                m_UIHealth.Blink(true);
+            else if (pCurHealth / m_Health * 100 > m_LowHealthPercent)
+                m_UIHealth.Blink(false);
 
             if (pCurHealth <= 0)
                 OnHealthDepleted();
@@ -50,8 +51,9 @@ namespace Game.Arcade1942
         private void OnTriggerEnter2D(Collider2D collision)
         {
             //Specific condition to immediately destroy object on collision with player
-            if (collision.gameObject.layer == LayerMask.NameToLayer("Player"))
+            if (collision.gameObject.layer == LayerMask.NameToLayer("Enemy"))
                 OnHealthDepleted();
         }
     }
 }
+

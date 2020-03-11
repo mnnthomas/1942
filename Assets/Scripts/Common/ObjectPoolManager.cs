@@ -8,7 +8,7 @@ namespace Game.Arcade1942
     public class ObjectToPool
     {
         public string _Name;
-        public int _Count;
+        public int _InitialCount;
         public GameObject _Object;
         public bool _CanSpawnAboveCount = true;
 
@@ -52,7 +52,7 @@ namespace Game.Arcade1942
         {
             for (int i = 0; i < m_ObjectsToPool.Count; i++)
             {
-                for (int j = 0; j < m_ObjectsToPool[i]._Count; j++)
+                for (int j = 0; j < m_ObjectsToPool[i]._InitialCount; j++)
                 {
                     GameObject obj = Instantiate(m_ObjectsToPool[i]._Object);
                     m_ObjectsToPool[i].AddToPool(obj);

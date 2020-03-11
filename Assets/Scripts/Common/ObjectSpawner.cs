@@ -31,26 +31,25 @@ namespace Game.Arcade1942
     public class ObjectSpawner : MonoBehaviour
     {
         [SerializeField] private List<ObjectSpawnData> m_ObjectSpawns = new List<ObjectSpawnData>();
+        private List<Coroutine> mSpawnCoroutines = new List<Coroutine>();
+
 
         private bool mAllowSpawn = false;
-
-        private void Start()
-        {
-            StartSpawnning();
-        }
 
         public void StartSpawnning()
         {
             mAllowSpawn = true;
             for(int i = 0; i < m_ObjectSpawns.Count; i++)
             {
-                StartCoroutine(ObjectSpawn(m_ObjectSpawns[i]));
+                mSpawnCoroutines.Add(StartCoroutine(ObjectSpawn(m_ObjectSpawns[i])));
             }
         }
         
         public void StopSpawnning()
         {
             mAllowSpawn = false;
+            for (int i = 0; i < mSpawnCoroutines.Count; i++)
+                StopCoroutine(mSpawnCoroutines[i]);
         }
 
         IEnumerator ObjectSpawn(ObjectSpawnData data)

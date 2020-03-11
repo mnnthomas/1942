@@ -406,6 +406,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Health: 100
   m_UIHealth: {fileID: 905597687902185188}
+  m_MessageReciever: {fileID: 11400000, guid: b3a31f747e2642a49b06fa12ddabcef8, type: 2}
   m_ExplosionEffectName: Explosion
 --- !u!114 &-674482104703938478
 MonoBehaviour:
@@ -1179,3 +1180,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_HealthSlider: {fileID: 9164545065042534112}
+  m_BlinkSprite: {fileID: 0}

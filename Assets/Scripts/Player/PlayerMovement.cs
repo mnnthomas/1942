@@ -30,6 +30,7 @@ namespace Game.Arcade1942
         protected override void Start()
         {
             base.Start();
+
             mAudioSource = GetComponent<AudioSource>();
 
             float minX = Camera.main.transform.position.x - Camera.main.orthographicSize;
@@ -39,9 +40,12 @@ namespace Game.Arcade1942
             mCameraBounds.SetMinMax(new Vector3(minX, minY, 0), new Vector3(maxX, maxY, 0));
         }
 
-        private void OnEnable()
+        public void AllowMovement(bool value)
         {
-            StartMovement();
+            if (value)
+                StartMovement();
+            else
+                EndMovement();
         }
 
         /// <summary>
