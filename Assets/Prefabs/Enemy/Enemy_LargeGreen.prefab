@@ -33,8 +33,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.25}
   m_AnchorMax: {x: 1, y: 0.75}
-  m_AnchoredPosition: {x: -4.9999847, y: 0}
-  m_SizeDelta: {x: -20, y: 0}
+  m_AnchoredPosition: {x: -0.0000038146973, y: 0}
+  m_SizeDelta: {x: -10.000015, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1023894434091480923
 GameObject:
@@ -408,6 +408,7 @@ MonoBehaviour:
   m_UIHealth: {fileID: 905597687902185188}
   m_MessageReciever: {fileID: 11400000, guid: b3a31f747e2642a49b06fa12ddabcef8, type: 2}
   m_ExplosionEffectName: Explosion
+  pCurHealth: 0
 --- !u!114 &-674482104703938478
 MonoBehaviour:
   m_ObjectHideFlags: 0

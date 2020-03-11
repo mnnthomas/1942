@@ -42,7 +42,7 @@ namespace Game.Arcade1942
                 if(healthBlink != null)
                 {
                     StopCoroutine(healthBlink);
-                    m_HealthSlider.gameObject.SetActive(true);
+                    m_BlinkSprite.gameObject.SetActive(true);
                 }
             }
         }

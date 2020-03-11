@@ -29,6 +29,15 @@ namespace Game.Arcade1942
                 OnHealthDepleted();
         }
 
+        public void ResetPlayer()
+        {
+            m_UIHealth.Blink(false);
+
+            pCurHealth = m_Health;
+            m_UIHealth.InitHealthBar(pCurHealth);
+            transform.position = new Vector3(0, -8f, -5f);//Start pos - need to expose.
+        }
+
         private void OnTriggerEnter2D(Collider2D collision)
         {
             //Specific condition to immediately destroy object on collision with player

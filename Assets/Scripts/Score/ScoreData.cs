@@ -17,6 +17,7 @@ namespace Game.Arcade1942
         public int _PlayerLives;
         public List<ScoreMap> _ScoreMap = new List<ScoreMap>();
 
+        //TODO :Might have to refactor
         public float GetScoreForEnemy(GameObject obj)
         {
             float value = 0;

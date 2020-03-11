@@ -253,6 +253,7 @@ MonoBehaviour:
   m_Spawner: {fileID: 243955391}
   m_PlayerMovement: {fileID: 1259541099}
   m_PlayerShoot: {fileID: 784253895}
+  m_PlayerHealth: {fileID: 2027080640}
   m_GameHud: {fileID: 3162875687406339041}
   m_HighScore: {fileID: 541045104}
   m_HighScoreName: {fileID: 390344678}
@@ -1253,6 +1254,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2027080640 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1978153729207031124, guid: a0acd2e1c72d9fc42b771ef43a0770a3,
+    type: 3}
+  m_PrefabInstance: {fileID: 5652759722682678515}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 85315ea3fb526d04c8c299ce9d1f54a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &3162875687406339040
 PrefabInstance:
   m_ObjectHideFlags: 0

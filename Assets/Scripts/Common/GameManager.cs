@@ -12,6 +12,7 @@ namespace Game.Arcade1942
         [SerializeField] private ObjectSpawner m_Spawner = default;
         [SerializeField] private PlayerMovement m_PlayerMovement = default;
         [SerializeField] private PlayerShoot m_PlayerShoot = default;
+        [SerializeField] private PlayerHealth m_PlayerHealth = default;
         [SerializeField] private UIGameHud m_GameHud = default;
         [Header(" -- Highscore Reference -- ")]
         [SerializeField] private HighScores m_HighScore = default;
@@ -61,6 +62,8 @@ namespace Game.Arcade1942
 
             if (pPlayerLivesLeft <= 0)
                 OnGameEnd();
+            else
+                m_PlayerHealth.ResetPlayer();
         }
 
         private void OnGameStart()
