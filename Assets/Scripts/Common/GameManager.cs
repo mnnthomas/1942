@@ -16,6 +16,8 @@ namespace Game.Arcade1942
         [Header(" -- Highscore Reference -- ")]
         [SerializeField] private HighScores m_HighScore = default;
         [SerializeField] private TMPro.TMP_InputField m_HighScoreName = default;
+        [Header(" -- Win Condition Reference -- ")]
+        [SerializeField] private List<WinCondition> m_WinConditions = new List<WinCondition>();
         [Header(" -- Scene names -- ")]
         [SerializeField] private string m_RestartScene = default;
         [SerializeField] private string m_MainMenuScene = default;
@@ -32,6 +34,9 @@ namespace Game.Arcade1942
         {
             if (ObjectPoolManager.pInstance.IsReady() && !pGameRunning && !mGameStarted)
                 OnGameStart();
+
+            if (pGameRunning)
+                CheckWinCondition();
         }
 
         private void OnEnemyDestroyed(GameObject enemy)
@@ -69,6 +74,21 @@ namespace Game.Arcade1942
             m_PlayerMovement.AllowMovement(true);
             m_PlayerShoot.AllowShoot(true);
             m_Spawner.StartSpawnning();
+            for(int i = 0; i < m_WinConditions.Count; i++)
+            {
+                m_WinConditions[i].Init();
+            }
+        }
+
+        private void CheckWinCondition()
+        {
+            for(int i = 0; i < m_WinConditions.Count; i++)
+            {
+                if (m_WinConditions[i].pIsReady == false)
+                    return;
+            }
+            mPlayerWon = true;
+            OnGameEnd();
         }
 
         private void OnGameEnd()
