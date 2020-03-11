@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace Game.Arcade1942
 {
@@ -10,13 +11,19 @@ namespace Game.Arcade1942
         [SerializeField] private ObjectSpawner m_Spawner = default;
         [SerializeField] private PlayerMovement m_PlayerMovement = default;
         [SerializeField] private UIGameHud m_GameHud = default;
+        [SerializeField] private HighScores m_HighScore = default;
 
+        [SerializeField] private string m_RestartScene = default;
+        [SerializeField] private string m_MainMenuScene = default;
 
-        public bool mGameStarted = false;
         public bool pGameRunning { private set; get; }
         public int pPlayerLivesLeft { private set; get; }
         public float pScore { private set; get; }
         public int pEnemyDestroyed { private set; get; }
+
+        private bool mGameStarted = false;
+        private bool mPlayerWon = false;
+        private bool mIsHighScore = false;
 
         private void Update()
         {
@@ -65,8 +72,24 @@ namespace Game.Arcade1942
             pGameRunning = false;
             m_PlayerMovement.AllowMovement(false);
             m_Spawner.StopSpawnning();
+            m_GameHud.ShowEndScreen(mPlayerWon, mIsHighScore);
         }
 
+        public void RestartGame()
+        {
+            SceneManager.LoadScene(m_RestartScene);
+        }
+
+        public void LoadMainMenu()
+        {
+            SceneManager.LoadScene(m_MainMenuScene);
+
+        }
+
+        public void SaveHighScore()
+        {
+
+        }
 
     }
 }

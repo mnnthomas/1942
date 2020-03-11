@@ -252,7 +252,9 @@ MonoBehaviour:
   m_Spawner: {fileID: 243955391}
   m_PlayerMovement: {fileID: 1259541099}
   m_GameHud: {fileID: 3162875687406339041}
-  mGameStarted: 0
+  m_HighScore: {fileID: 0}
+  m_RestartScene: GameScene
+  m_MainMenuScene: MenuScene
 --- !u!114 &253137833
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1169,6 +1171,21 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4514572404597650566, guid: 1d15f58461efe4044a827e8ca2097e65,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 253137832}
+    - target: {fileID: 4736726094547433921, guid: 1d15f58461efe4044a827e8ca2097e65,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 253137832}
+    - target: {fileID: 6018662471915013470, guid: 1d15f58461efe4044a827e8ca2097e65,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 253137832}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1d15f58461efe4044a827e8ca2097e65, type: 3}
 --- !u!114 &3162875687406339041 stripped
