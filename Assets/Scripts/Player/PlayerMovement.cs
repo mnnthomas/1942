@@ -24,20 +24,19 @@ namespace Game.Arcade1942
         private AudioSource mAudioSource;
         private bool mIsIdlePlaying;
         private Vector3 movementVector = default;
-        private Bounds mCameraBounds;
         private Coroutine mUpdateSound;
+
+        private Bounds mMovementBounds;
+        private Vector2 mScreenBounds;
+        private float mSpriteWidthOffset, mSpriteHeightOffset;
 
         protected override void Start()
         {
             base.Start();
-
             mAudioSource = GetComponent<AudioSource>();
 
-            float minX = Camera.main.transform.position.x - Camera.main.orthographicSize;
-            float maxX = Camera.main.transform.position.x + Camera.main.orthographicSize;
-            float minY = Camera.main.transform.position.y - Camera.main.orthographicSize;
-            float maxY = Camera.main.transform.position.y + Camera.main.orthographicSize;
-            mCameraBounds.SetMinMax(new Vector3(minX, minY, 0), new Vector3(maxX, maxY, 0));
+            mScreenBounds = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, Camera.main.transform.position.z));
+            mMovementBounds = new Bounds(Vector3.zero, new Vector3(mScreenBounds.x * 2 - GetComponent<SpriteRenderer>().bounds.size.x, mScreenBounds.y * 2 - GetComponent<SpriteRenderer>().bounds.size.y, 0f));
         }
 
         public void AllowMovement(bool value)
@@ -56,9 +55,9 @@ namespace Game.Arcade1942
             movementVector = new Vector2(Input.GetAxis(m_HorizontalKey) * m_Speed.x, Input.GetAxis(m_ForwardKey) * m_Speed.y) * Time.deltaTime;
             transform.Translate(movementVector, Space.Self);
 
-            if (!mCameraBounds.Contains(transform.position))
-                transform.position = new Vector3(mCameraBounds.ClosestPoint(transform.position).x, mCameraBounds.ClosestPoint(transform.position).y, transform.position.z);
-            
+            if (!mMovementBounds.Contains(transform.position))
+                transform.position = new Vector3(mMovementBounds.ClosestPoint(transform.position).x, mMovementBounds.ClosestPoint(transform.position).y, transform.position.z);
+
             UpdateEngineSound(movementVector);
         }
 

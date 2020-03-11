@@ -7,12 +7,16 @@ namespace Game.Arcade1942
 {
     public class GameManager : MonoBehaviour
     {
+        [Header(" -- Object Reference -- ")]
         [SerializeField] private ScoreData m_ScoreData = default;
         [SerializeField] private ObjectSpawner m_Spawner = default;
         [SerializeField] private PlayerMovement m_PlayerMovement = default;
+        [SerializeField] private PlayerShoot m_PlayerShoot = default;
         [SerializeField] private UIGameHud m_GameHud = default;
+        [Header(" -- Highscore Reference -- ")]
         [SerializeField] private HighScores m_HighScore = default;
-
+        [SerializeField] private TMPro.TMP_InputField m_HighScoreName = default;
+        [Header(" -- Scene names -- ")]
         [SerializeField] private string m_RestartScene = default;
         [SerializeField] private string m_MainMenuScene = default;
 
@@ -23,7 +27,6 @@ namespace Game.Arcade1942
 
         private bool mGameStarted = false;
         private bool mPlayerWon = false;
-        private bool mIsHighScore = false;
 
         private void Update()
         {
@@ -64,6 +67,7 @@ namespace Game.Arcade1942
             m_GameHud.UpdateLives(pPlayerLivesLeft);
 
             m_PlayerMovement.AllowMovement(true);
+            m_PlayerShoot.AllowShoot(true);
             m_Spawner.StartSpawnning();
         }
 
@@ -71,8 +75,12 @@ namespace Game.Arcade1942
         {
             pGameRunning = false;
             m_PlayerMovement.AllowMovement(false);
+            m_PlayerShoot.AllowShoot(false);
             m_Spawner.StopSpawnning();
-            m_GameHud.ShowEndScreen(mPlayerWon, mIsHighScore);
+
+            m_GameHud.ShowEndScreen(mPlayerWon);
+            if (m_HighScore.IsHighScore(pScore))
+                m_GameHud.ShowHighScoreSave(true);
         }
 
         public void RestartGame()
@@ -83,12 +91,15 @@ namespace Game.Arcade1942
         public void LoadMainMenu()
         {
             SceneManager.LoadScene(m_MainMenuScene);
-
         }
 
         public void SaveHighScore()
         {
-
+            if (!string.IsNullOrEmpty(m_HighScoreName.text))
+            {
+                m_HighScore.AddHighScores(m_HighScoreName.text, pScore);
+                m_GameHud.ShowHighScoreSave(false);
+            }
         }
 
     }

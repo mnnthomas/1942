@@ -251,8 +251,10 @@ MonoBehaviour:
   m_ScoreData: {fileID: 11400000, guid: 38376e85898517442ab6e0ba6797b399, type: 2}
   m_Spawner: {fileID: 243955391}
   m_PlayerMovement: {fileID: 1259541099}
+  m_PlayerShoot: {fileID: 784253895}
   m_GameHud: {fileID: 3162875687406339041}
-  m_HighScore: {fileID: 0}
+  m_HighScore: {fileID: 541045104}
+  m_HighScoreName: {fileID: 390344678}
   m_RestartScene: GameScene
   m_MainMenuScene: MenuScene
 --- !u!114 &253137833
@@ -334,6 +336,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &390344678 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6066979731786591397, guid: 1d15f58461efe4044a827e8ca2097e65,
+    type: 3}
+  m_PrefabInstance: {fileID: 3162875687406339040}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2da0c512f12947e489f739169773d7ca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &409221351
 GameObject:
   m_ObjectHideFlags: 0
@@ -541,6 +555,18 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 647211433}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &784253895 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4185288640948475856, guid: a0acd2e1c72d9fc42b771ef43a0770a3,
+    type: 3}
+  m_PrefabInstance: {fileID: 5652759722682678515}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4894f7990cc19454aac6a1ea0733071b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1209144882
 GameObject:
   m_ObjectHideFlags: 0
@@ -1215,12 +1241,6 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1978153729207031124, guid: a0acd2e1c72d9fc42b771ef43a0770a3,
-        type: 3}
-      propertyPath: m_MessageReciever
-      value: 
-      objectReference: {fileID: 11400000, guid: b3a31f747e2642a49b06fa12ddabcef8,
-        type: 2}
     - target: {fileID: 5652759724165757764, guid: a0acd2e1c72d9fc42b771ef43a0770a3,
         type: 3}
       propertyPath: m_Name

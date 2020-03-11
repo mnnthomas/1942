@@ -13,7 +13,6 @@ namespace Game.Arcade1942
         [SerializeField] private GameObject m_GameEndScreen = default;
         [SerializeField] private TextMeshProUGUI m_GameEndText = default;
   
-
         public void UpdateScore(float value)
         {
             m_ScoreText.text = value.ToString();
@@ -24,13 +23,15 @@ namespace Game.Arcade1942
             m_LivesText.text = value.ToString();
         }
 
-        public void ShowEndScreen(bool win, bool highscore)
+        public void ShowEndScreen(bool win)
         {
             m_GameEndScreen.SetActive(true);
             m_GameEndText.text = win ? "You Win !" : "You Lose !";
+        }
 
-            if (highscore)
-                m_SaveHighScore.SetActive(true);
+        public void ShowHighScoreSave(bool show)
+        {
+            m_SaveHighScore.SetActive(show);
         }
     }
 }

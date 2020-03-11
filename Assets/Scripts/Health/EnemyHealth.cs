@@ -6,31 +6,13 @@ using UnityEngine.UI;
 namespace Game.Arcade1942
 {
     /// <summary>
-    /// EnemyHealth extends from IHealth and handles health calculation on TakeDamage
+    /// EnemyHealth inherits from BaseHealth and handles health calculation on TakeDamage
     /// </summary>
-    public class EnemyHealth : MonoBehaviour, IHealth
+    public class EnemyHealth : BaseHealth
     {
-        [SerializeField] private float m_Health = default;
-        [SerializeField] private UIHealth m_UIHealth = default;
-        [SerializeField] private TargetTransform m_MessageReciever = default;
-        [Header(" -- Explosion effects -- ")]
-        [SerializeField] private string m_ExplosionEffectName = default;
-
-        public float pCurHealth { private set; get; }
-
-        private void OnEnable()
-        {
-            pCurHealth = m_Health;
-            m_UIHealth.InitHealthBar(pCurHealth);
-        }
-
-        private void OnDisable()
-        {
-            pCurHealth = default;
-        }
 
         //Spawns an explosion effect in place and puts the enemy back in object pool
-        public void OnHealthDepleted()
+        protected override void OnHealthDepleted()
         {
             ObjectPoolManager.pInstance.SpawnObject(m_ExplosionEffectName, transform.position);
             ObjectPoolManager.pInstance.ReturnToPool(gameObject);
@@ -38,7 +20,7 @@ namespace Game.Arcade1942
             m_MessageReciever.pValue.SendMessage("OnEnemyDestroyed", gameObject);
         }
 
-        public void TakeDamage(float value)
+        public override void TakeDamage(float value)
         {
             pCurHealth -= value;
             m_UIHealth.UpdateHealth(pCurHealth);

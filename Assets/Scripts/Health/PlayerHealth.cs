@@ -4,37 +4,18 @@ using UnityEngine;
 
 namespace Game.Arcade1942
 {
-    public class PlayerHealth : MonoBehaviour, IHealth
+    public class PlayerHealth : BaseHealth
     {
-        [SerializeField] private float m_Health = default;
-        [SerializeField] private UIHealth m_UIHealth = default;
-        [SerializeField] private TargetTransform m_MessageReciever = default;
         [Range(0, 100)]
         [SerializeField] private float m_LowHealthPercent = default;
 
-        [Header(" -- Explosion effects -- ")]
-        [SerializeField] private string m_ExplosionEffectName = default;
-
-        public float pCurHealth { private set; get; }
-
-        private void OnEnable()
-        {
-            pCurHealth = m_Health;
-            m_UIHealth.InitHealthBar(pCurHealth);
-        }
-
-        private void OnDisable()
-        {
-            pCurHealth = default;
-        }
-
-        public void OnHealthDepleted()
+        protected override void OnHealthDepleted()
         {
             ObjectPoolManager.pInstance.SpawnObject(m_ExplosionEffectName, transform.position);
             m_MessageReciever.pValue.SendMessage("OnPlayerDestroyed");
         }
 
-        public void TakeDamage(float value)
+        public override void TakeDamage(float value)
         {
             pCurHealth -= value;
             m_UIHealth.UpdateHealth(pCurHealth);

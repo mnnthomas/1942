@@ -1161,5 +1161,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Health: 50
   m_UIHealth: {fileID: 109243887}
-  m_LowHealthPercent: 25
+  m_MessageReciever: {fileID: 11400000, guid: b3a31f747e2642a49b06fa12ddabcef8, type: 2}
   m_ExplosionEffectName: Explosion
+  pCurHealth: 0
+  m_LowHealthPercent: 25
