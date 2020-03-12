@@ -1,3 +1,4 @@
 dq,90
 vvvaaa,160
 naveen,50
+NaveenThomas,560
